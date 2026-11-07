@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "isolatedModules": true,
+    "lib": ["ES2022", "DOM"],
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
