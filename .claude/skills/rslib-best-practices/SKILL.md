@@ -1,10 +1,9 @@
 ---
-
 name: rslib-best-practices
-description: Rslib best practices for config, CLI workflow, output, declaration files, dependency handling, build optimization and toolchain integration. Use when writing, reviewing, or troubleshooting Rslib projects.
+description: Configure, review, or troubleshoot Rslib library builds, output formats, declarations, dependency handling, and integrations.
 ---
 
-# Rslib Best Practices
+# Rslib best practices
 
 Apply these rules when writing or reviewing Rslib library projects.
 
@@ -23,10 +22,10 @@ Apply these rules when writing or reviewing Rslib library projects.
 
 ## Output
 
-- Prefer to build pure-ESM package with `"type": "module"` in `../../../package.json`
+- Prefer to build pure-ESM package with `"type": "module"` in `package.json`
 - Prefer to use bundleless mode with `output.target` set to `'web'` when building component libraries
 - Prefer to use bundle mode when building Node.js utility libraries
-- Ensure `exports` field in `../../../package.json` is correctly configured and matches the actual JavaScript output and declaration files output of different formats (ESM, CJS, etc.)
+- Ensure `exports` field in `package.json` is correctly configured and matches the actual JavaScript output and declaration files output of different formats (ESM, CJS, etc.)
 
 ## Declaration files
 
@@ -36,7 +35,7 @@ Apply these rules when writing or reviewing Rslib library projects.
 ## Dependencies
 
 - Prefer to place dependencies to be bundled in `devDependencies` in bundle mode and dependencies in `dependencies` and `peerDependencies` will be automatically externalized (not bundled) by default
-- Verify the build output and dependency specifiers in `../../../package.json` carefully to ensure no missing dependency errors occur when consumers install and use this package
+- Verify the build output and dependency specifiers in `package.json` carefully to ensure no missing dependency errors occur when consumers install and use this package
 
 ## Build optimization
 

@@ -48,6 +48,8 @@
     "prepare": "simple-git-hooks",
     "release": "changeset publish",
     "test": "tsc --noEmit -p tsconfig.typetests.json && rstest run",
+    "test:browser": "rstest run --project browser",
+    "test:node": "rstest run --project node",
     "test:types": "tsc --noEmit -p tsconfig.typetests.json",
     "test:unit": "rstest run",
     "test:watch": "rstest --watch",
@@ -64,19 +66,23 @@
     "@biomejs/biome": "^2.6.6",
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.1",
-    "@rslib/core": "^0.23.2",
-    "@rstest/adapter-rslib": "^0.11.9",
-    "@rstest/core": "^0.11.9",
-    "@rstest/coverage-v8": "^0.11.9",
-    "@types/node": "^24.13.3",
+    "@rslib/core": "^1.0.6",
+    "@rstest/adapter-rslib": "^0.12.6",
+    "@rstest/core": "^0.12.6",
+    "@rstest/coverage-v8": "^0.12.6",
+    "@types/node": "^26.6.6",
+    "happy-dom": "^21.0.4",
     "simple-git-hooks": "^2.14.0",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "zod": "^4.6.7"
   },
   "peerDependencies": {
     "zod": "^4.6.7"
   },
   "packageManager": "pnpm@12.18.0+sha512.9d7882d5dc82147ecfc4e062aa34834e0ad0296710a1837a1115ae012127d36b7109e321ac1598a1dd0a65597681b1e99917e12ed0d749eae91187943363beb3",
+  "engines": {
+    "node": ">=24.19.0 <27.0.0"
+  },
   "devEngines": {
     "runtime": {
       "name": "node",

@@ -1,2 +1,5 @@
 allowBuilds:
   simple-git-hooks: true
+peerDependencyRules:
+  allowedVersions:
+    "@rstest/core>happy-dom": "^21.0.4"

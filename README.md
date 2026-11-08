@@ -11,12 +11,13 @@ English | [简体中文](./README.zh-CN.md)
 - **Constraint-aware**: respects string formats/lengths, numeric ranges, exclusive bounds, `multipleOf`, integer formats, date ranges, collection sizes and file size/MIME checks.
 - **Reproducible**: the same seed produces the same mock value; `create` is deterministic by default.
 - **Customizable**: override generated fields with `defaults`, or register custom generators by schema instance or schema class.
-- **Dual builds**: ESM and CJS outputs with matching `.d.ts` / `.d.cts` declarations.
+- **Universal builds**: ESM and CJS outputs with matching `.d.ts` / `.d.cts` declarations, tested in both Node.js and a browser-like DOM environment.
 - **Zod 4 current APIs**: works with the modern `z.email()`, `z.uuid()`, `z.iso.*()`, `z.int()`, `z.enum()` APIs and reads constraints through zod's public accessors plus `schema.def.checks` (no dependency on the legacy `_zod.bag`).
 
 ## Requirements
 
-- Node.js >= 24 (Node.js 24 LTS recommended)
+- Node.js `>=24.19.0 <27.0.0` (the same range is enforced via `devEngines`)
+- Modern browsers with ES2022 support
 - `zod ^4.6.7` as a peer dependency
 
 ## Install
@@ -268,15 +269,17 @@ The library works with the current zod 4 APIs; deprecated APIs are not required.
 ```bash
 pnpm install
 pnpm build          # ESM + CJS + declaration files
-pnpm test           # type-level tests + unit tests
+pnpm test           # type-level tests + unit tests (Node + browser)
 pnpm test:types     # type-level tests only
-pnpm test:unit      # unit tests only
+pnpm test:unit      # unit tests in both projects
+pnpm test:node      # Node.js test project only
+pnpm test:browser   # happy-dom browser test project only
 pnpm coverage       # coverage with enforced thresholds
 pnpm check          # Biome lint/format check (read-only)
 pnpm check:write    # Biome lint/format with fixes
 ```
 
-Coverage thresholds: statements 85%, branches 70%, functions 90%, lines 85%. Current: statements 87.7%, branches 74.1%, functions 96.3%, lines 90.7%.
+Coverage thresholds: statements 85%, branches 70%, functions 90%, lines 85%. Current: statements 87.7%, branches 74.5%, functions 96.3%, lines 90.7%.
 
 ## License
 

@@ -29,6 +29,7 @@
       "!build/**",
       "!scripts/**",
       "!.changeset/**",
+      "!.claude/skills/**",
       "!packages/core/styles/**/*.css"
     ],
     "indentStyle": "space",

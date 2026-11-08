@@ -11,12 +11,13 @@
 - **感知约束**：支持字符串格式/长度、数字范围/排他边界/`multipleOf`/整数格式、日期范围、集合大小、文件大小与 MIME 校验。
 - **可复现**：相同 seed 生成相同的 mock 数据；`create` 天然确定性。
 - **可定制**：通过 `defaults` 覆盖任意字段，或按 schema 实例/类注册自定义生成器。
-- **双格式构建**：同时提供 ESM 与 CJS 产物及对应的 `.d.ts` / `.d.cts` 类型声明。
+- **通用构建**：同时提供 ESM 与 CJS 产物及对应的 `.d.ts` / `.d.cts` 类型声明，并在 Node.js 与浏览器 DOM 环境中均有测试覆盖。
 - **使用 zod 4 现行 API**：兼容 `z.email()`、`z.uuid()`、`z.iso.*()`、`z.int()`、`z.enum()` 等新 API，并通过 zod 的公开访问器与 `schema.def.checks` 读取约束（不依赖已不再写入的 `_zod.bag`）。
 
 ## 环境要求
 
-- Node.js >= 24（推荐 Node.js 24 LTS）
+- Node.js `>=24.19.0 <27.0.0`（与 `devEngines` 保持一致）
+- 支持 ES2022 的现代浏览器
 - 以 peer dependency 形式安装 `zod ^4.6.7`
 
 ## 安装
@@ -268,15 +269,17 @@ const value = mock(schema, {
 ```bash
 pnpm install
 pnpm build          # 构建 ESM + CJS + 类型声明
-pnpm test           # 类型级测试 + 单元测试
+pnpm test           # 类型级测试 + 单元测试（Node + 浏览器）
 pnpm test:types     # 仅类型级测试
-pnpm test:unit      # 仅单元测试
+pnpm test:unit      # 两个 project 的单元测试
+pnpm test:node      # 仅 Node.js 测试 project
+pnpm test:browser   # 仅 happy-dom 浏览器测试 project
 pnpm coverage       # 覆盖率（带强制阈值）
 pnpm check          # Biome 检查（只读）
 pnpm check:write    # Biome 检查并自动修复
 ```
 
-覆盖率阈值：语句 85%、分支 70%、函数 90%、行 85%。当前：语句 87.7%、分支 74.1%、函数 96.3%、行 90.7%。
+覆盖率阈值：语句 85%、分支 70%、函数 90%、行 85%。当前：语句 87.7%、分支 74.5%、函数 96.3%、行 90.7%。
 
 ## 许可证
 
