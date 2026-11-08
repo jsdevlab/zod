@@ -1,6 +1,6 @@
 {
   "name": "@jsdevlab/zod",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Generate deterministic initial values and reproducible mock data from zod schemas, fully typed as z.output<T>.",
   "keywords": [
